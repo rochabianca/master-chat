@@ -2,8 +2,8 @@
   <div class="chat container">
     <h2 class="center teal-text">Master Chat</h2>
     <div class="card">
-      <div class="card-content">
-        <ul class="messages">
+      <div class="card-content text-left">
+        <ul class="messages" v-chat-scroll>
           <li v-for="message in messages" :key="message.id">
             <span class="teal-text">{{message.name}}</span>
             <span class="grey-text text-darken-3">{{message.content}}</span>
@@ -66,6 +66,22 @@ export default {
   .time {
     display: block;
     font-size: 0.8em;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .messages {
+    max-height: 300px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #ddd;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #aaa;
+    }
   }
 }
 </style>
